@@ -1,4 +1,6 @@
 ﻿using CSharpPro_HW.HW3;
+using CSharpPro_HW.HW4;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace CSharpPro_HW
@@ -12,22 +14,13 @@ namespace CSharpPro_HW
             try
             {
                 // Task 1
-                int[] testArr = { 21, 29, 73, 46, 51, 62, 18 };
-                var myArr = new MyArray(testArr);
-                myArr.Show();
-                string myInfo = "Information";
-                myArr.Show(myInfo);
-
+                Employee.TestTask1();
+                Console.WriteLine("---------------------------------");
                 // Task 2
-                myArr.Max();
-                myArr.Min();
-                myArr.Avg();
-                myArr.Search(62);
-
+                City.TestTask2();
+                Console.WriteLine("---------------------------------");
                 // Task 3
-                myArr.SortAsc();
-                myArr.SortDesc();
-                myArr.SortByParam(true);
+                CreditCard.TestTask3();
             }
             catch (Exception ex)
             {
