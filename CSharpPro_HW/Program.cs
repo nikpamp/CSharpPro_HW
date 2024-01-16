@@ -15,7 +15,7 @@ namespace CSharpPro_HW
 
             try
             {
-                // HW5
+                // HW5 Task 1
                 void Test()
                 {
                     Play hamlet = new Play("Hamlet", "William Shakespeare", "Tragedy", 1600);
@@ -23,7 +23,21 @@ namespace CSharpPro_HW
                     hamlet.Dispose();
                 }
                 Test();
-                GC.Collect();
+                Console.WriteLine();
+
+                // HW5 Task 2
+                StoreType foodStore = new StoreType("Food Store");
+                StoreType economicStore = new StoreType("Economic Store");
+                StoreType clothesStore = new StoreType("Clothes Store");
+                StoreType footwearStore = new StoreType("Footwear Store");
+
+                void Test2()
+                {
+                    Store atb = new Store("ATB", "21 Shevchenko Avenue", foodStore.storeType);
+                    atb.ShowInfo();
+                    atb.Dispose();
+                }
+                Test2();
             }
             catch (Exception ex)
             {
