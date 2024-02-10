@@ -1,8 +1,7 @@
 ﻿using CSharpPro_HW.HW3;
 using CSharpPro_HW.HW4;
 using CSharpPro_HW.HW5;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
+using CSharpPro_HW.HW6;
 using System.Text;
 
 namespace CSharpPro_HW
@@ -15,29 +14,19 @@ namespace CSharpPro_HW
 
             try
             {
-                // HW5 Task 1
-                void Test()
-                {
-                    Play hamlet = new Play("Hamlet", "William Shakespeare", "Tragedy", 1600);
-                    hamlet.ShowInfo();
-                    hamlet.Dispose();
-                }
-                Test();
-                Console.WriteLine();
+                // HW6
+                var barbershop = new Barbershop();
+                var barberThread = new Thread(barbershop.Barber);
+                barberThread.Start();
 
-                // HW5 Task 2
-                StoreType foodStore = new StoreType("Food Store");
-                StoreType economicStore = new StoreType("Economic Store");
-                StoreType clothesStore = new StoreType("Clothes Store");
-                StoreType footwearStore = new StoreType("Footwear Store");
+                Thread.Sleep(1000);
 
-                void Test2()
+                for (int i = 0; i < 10; i++)
                 {
-                    Store atb = new Store("ATB", "21 Shevchenko Avenue", foodStore.storeType);
-                    atb.ShowInfo();
-                    atb.Dispose();
+                    var customerThread = new Thread(barbershop.Customer);
+                    customerThread.Start();
+                    Thread.Sleep(300);
                 }
-                Test2();
             }
             catch (Exception ex)
             {
